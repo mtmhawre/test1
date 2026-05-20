@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمون فنی و حرفه‌ای | سامانه هوشمند</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazir', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1em;
+        }
+
+        .ai-section {
+            background: #f0f0ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .ai-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-bottom: 15px;
+        }
+
+        .ai-button:hover {
+            transform: scale(1.05);
+        }
+
+        .suggestion-text {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-result { background: #DB4437; }
+        .btn-card { background: #333; }
+        .btn-sample { background: #FF9800; }
+
+        .custom-input {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .custom-input input {
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid #ddd;
+            width: 250px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .custom-input button {
+            background: #00BCD4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .custom-input button:hover {
+            background: #008c9e;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .note {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📋 سامانه هوشمند آزمون فنی و حرفه‌ای</h1>
+        <p class="subtitle">دسترسی سریع به خدمات آزمون | همراه با راهنمای هوشمند</p>
+
+        <div class="ai-section">
+            <button class="ai-button" id="aiSuggestionBtn">🤖 مشاوره هوشمند آزمون</button>
+            <div class="suggestion-text" id="suggestion">
+                روی دکمه بزن تا هوش مصنوعی کمکت کنه!
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="https://azmoon.portaltvto.com/result/result/index/1/80" target="_blank" class="btn btn-result">📊 مشاهده نتایج آزمون</a>
+            <a href="https://azmoon.portaltvto.com/card/card/index/1/80" target="_blank" class="btn btn-card">🎫 کارت ورود به جلسه</a>
+            <a href="https://y.com" target="_blank" class="btn btn-sample">📚 نمونه سوالات</a>
+        </div>
+
+        <div class="custom-input">
+            <input type="text" id="customUrl" placeholder="آدرس دلخواه مثل www.portaltvto.com">
+            <button id="goBtn">🚀 برو به آدرس</button>
+        </div>
+        
+        <div class="note">
+            💡 نکته: برای مشاهده نتایج و کارت ورود به جلسه، باید کد ملی خود را وارد کنید.
+        </div>
+
+        <footer>ساخته شده با هوش مصنوعی | میزبان در گیت‌هاب</footer>
+    </div>
+
+    <script>
+        // هوش مصنوعی مخصوص آزمون فنی و حرفه‌ای
+        document.getElementById('aiSuggestionBtn').addEventListener('click', function() {
+            const پیشنهادات = [
+                "✅ کد پیگیری خود را نزد خود نگه دارید!",
+                "📌 ۱۵ دقیقه قبل از آزمون در جلسه حاضر باشید.",
+                "🪪 کارت ملی و کارت ورود به جلسه همراه داشته باشید.",
+                "✏️ ابتدا به سوالات آسان پاسخ دهید.",
+                "⏰ زمان را مدیریت کنید. به هر سوال بیشتر از ۱ دقیقه ندهید.",
+                "🔋 شارژر لپ‌تاپ یا گوشی همراه داشته باشید (آزمون آنلاین).",
+                "🌐 اینترنت پرسرعت و پایدار مهمترین چیزه!",
+                "📝 پاسخ‌هایی که شک دارید رو علامت بزنید بعد برگردید.",
+                "😌 شب قبل آزمون خوب بخوابید و صبحانه سبک بخورید.",
+                "🎯 منابع آزمون رو از سایت سازمان فنی حرفه‌ای دانلود کنید."
+            ];
+            const randomIndex = Math.floor(Math.random() * پیشنهادات.length);
+            document.getElementById('suggestion').innerHTML = `🤖 ${پیشنهادات[randomIndex]}`;
+        });
+
+        // دکمه آدرس دلخواه
+        document.getElementById('goBtn').addEventListener('click', function() {
+            let url = document.getElementById('customUrl').value;
+            if (!url) {
+                document.getElementById('suggestion').innerHTML = '⚠️ لطفاً یک آدرس وارد کن!';
+                return;
+            }
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+            window.open(url, '_blank');
+            document.getElementById('suggestion').innerHTML = '🚀 در حال انتقال به آدرس مورد نظر...';
+        });
+        
+        // اجازه Enter در فیلد آدرس
+        document.getElementById('customUrl').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('goBtn').click();
+            }
+        });
+    </script>
+</body>
+</html>
